@@ -11,7 +11,8 @@ export const getChapters = (id) => {
         }})
         .then(response => {
                 const $ = cheerio.load(response.data);
-                const options = $('.ChapterListClass option');
+                const selectElements = $('.ChapterListClass');
+                const options = $(selectElements[0]).find('option');
                 const result = [];
 
                 options.each((index, option) => {
