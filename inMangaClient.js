@@ -3,8 +3,11 @@ import axios from 'axios';
 
 export const getChapters = (id) => {
     return new Promise((resolve, reject) => {
-        axios.get('https://inmanga.com/chapter/chapterIndexControls?identification=' + id)
-            .then(response => {
+        axios.get('https://inmanga.com/chapter/chapterIndexControls?identification=' + id, {
+        headers: {
+        'Content-Type': 'text/html'
+        }})
+        .then(response => {
                 const $ = cheerio.load(response.data);
                 const options = $('.ChapterListClass option');
                 const result = [];
