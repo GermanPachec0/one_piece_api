@@ -22,9 +22,18 @@ export const getChapters = (id) => {
                 resolve(result);
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
-                reject(error);
-            });
+                // Handle errors here
+                if (error.response) {
+                // The request was made, but the server responded with an error status
+                console.error(`Status: ${error.response.status}`);
+                console.error(`Data: ${error.response.data}`);
+                } else if (error.request) {
+                // The request was made but no response was received
+                console.error('No response received from the server');
+                } else {
+                // Something else went wrong
+                console.error(`Error: ${error.message}`);
+            }});
     });
 }
 
