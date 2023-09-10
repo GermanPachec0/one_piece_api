@@ -6,8 +6,6 @@ export const getChapters = (id) => {
         axios.get('https://inmanga.com/chapter/chapterIndexControls?identification=' + id, {
         headers: {
         'Content-Type': 'text/html',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-
         }})
         .then(response => {
                 const $ = cheerio.load(response.data);
