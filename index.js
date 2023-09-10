@@ -1,4 +1,4 @@
-import { getPages , getChapters , getChaptersDetails } from "./inMangaClient.js";
+import { getChapters , getChaptersDetails } from "./inMangaClient.js";
 
 import express, { json } from 'express' // require -> commonJS
 import { corsMiddleware } from './middlewares/cors.js'
